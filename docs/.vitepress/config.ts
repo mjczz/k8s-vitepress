@@ -105,6 +105,12 @@ const a =  defineConfig({
         items: [
           { text: 'Device Manager 深度分析', link: '/deep-dive/device-manager-deep-dive' }
         ]
+      },
+      {
+        text: '扩展主题',
+        items: [
+          { text: 'Service Account 和 Token 管理', link: '/deep-dive/serviceaccount-token-deep-dive' }
+        ]
       }
     ],
 
