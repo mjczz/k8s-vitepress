@@ -1,6 +1,6 @@
 import "./chunk-BUSYA2B4.js";
 
-// node_modules/.pnpm/minisearch@7.2.0/node_modules/minisearch/dist/es/index.js
+// node_modules/minisearch/dist/es/index.js
 var ENTRIES = "ENTRIES";
 var KEYS = "KEYS";
 var VALUES = "VALUES";

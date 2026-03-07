@@ -8,7 +8,7 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 const a =  defineConfig({
   title: 'Kubernetes 深度分析',
   description: '深入理解 Kubernetes 核心机制与源码实现',
-  base: '/k8s-vitepress/',
+  base: '/',
 
   // Markdown 配置
   markdown: {

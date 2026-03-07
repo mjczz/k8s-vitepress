@@ -1,0 +1,12 @@
+name = "k8s-vitepress"
+main = "src/index.ts"
+compatibility_date = "2026-03-07"
+
+# 静态资源配置（使用 Assets）
+[assets]
+directory = "docs/.vitepress/dist"
+binding = "ASSETS"
+
+# 环境变量
+[vars]
+NODE_ENV = "production"
