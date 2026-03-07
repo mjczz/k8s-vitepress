@@ -99,6 +99,12 @@ const a =  defineConfig({
           { text: '领导选举机制', link: '/deep-dive/leader-election-deep-dive' },
           { text: '资源配额限制', link: '/deep-dive/resource-quota-limits-deep-dive' }
         ]
+      },
+      {
+        text: '高级特性',
+        items: [
+          { text: 'Device Manager 深度分析', link: '/deep-dive/device-manager-deep-dive' }
+        ]
       }
     ],
 
