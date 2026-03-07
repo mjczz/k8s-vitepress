@@ -115,6 +115,12 @@ const a =  defineConfig({
           { text: 'Metrics Server', link: '/deep-dive/metrics-server-deep-dive' },
           { text: 'Kubernetes Dashboard', link: '/deep-dive/kubernetes-dashboard-deep-dive' }
         ]
+      },
+      {
+        text: 'Kubernetes 专家路径',
+        items: [
+          { text: 'Etcd 深度分析', link: '/deep-dive/etcd-deep-dive' }
+        ]
       }
     ],
 
