@@ -110,7 +110,8 @@ const a =  defineConfig({
         text: '扩展主题',
         items: [
           { text: 'Service Account 和 Token 管理', link: '/deep-dive/serviceaccount-token-deep-dive' },
-          { text: 'Operator Framework', link: '/deep-dive/operator-framework-deep-dive' }
+          { text: 'Operator Framework', link: '/deep-dive/operator-framework-deep-dive' },
+          { text: 'Prometheus Adapter', link: '/deep-dive/prometheus-adapter-deep-dive' }
         ]
       }
     ],
