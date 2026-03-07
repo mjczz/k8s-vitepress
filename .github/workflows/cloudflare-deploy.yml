@@ -33,7 +33,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build
-        run: pnpm build
+        run: pnpm run build
 
       - name: Deploy (Cloudflare Pages/Workers)
-        run: pnpm deploy
+        run: pnpm run deploy
