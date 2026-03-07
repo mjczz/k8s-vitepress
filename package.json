@@ -16,7 +16,7 @@
     "vitepress": "^1.6.4",
     "vitepress-plugin-mermaid": "^2.0.17",
     "vue": "^3.5.29",
-    "wrangler": "^3.0.0"
+    "wrangler": "4"
   },
   "pnpm": {
     "peerDependencyRules": {
