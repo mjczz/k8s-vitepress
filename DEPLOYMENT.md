@@ -85,5 +85,4 @@ npm run deploy
 ```toml
 [assets]
 directory = "docs/.vitepress/dist"  # 正确
-# directory = "public"               # 错误（需手动同步）
 ```
