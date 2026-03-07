@@ -112,7 +112,8 @@ const a =  defineConfig({
           { text: 'Service Account 和 Token 管理', link: '/deep-dive/serviceaccount-token-deep-dive' },
           { text: 'Operator Framework', link: '/deep-dive/operator-framework-deep-dive' },
           { text: 'Prometheus Adapter', link: '/deep-dive/prometheus-adapter-deep-dive' },
-          { text: 'Metrics Server', link: '/deep-dive/metrics-server-deep-dive' }
+          { text: 'Metrics Server', link: '/deep-dive/metrics-server-deep-dive' },
+          { text: 'Kubernetes Dashboard', link: '/deep-dive/kubernetes-dashboard-deep-dive' }
         ]
       }
     ],
