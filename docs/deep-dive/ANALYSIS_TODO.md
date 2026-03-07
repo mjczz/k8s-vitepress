@@ -43,18 +43,18 @@
 
 ---
 
-## 待分析主题（3/12）📋
+## 待分析主题（2/12）📋
 
 ### 第二阶段：核心机制（P1）
 
-- [ ] **Volume Manager 深度分析**
+- [x] **Volume Manager 深度分析** (`volume-manager-deep-dive.md`) ✅ (30KB)
   - 卷管理接口
   - 卷挂载流程（Attach、Mount、Unmount、Detach）
   - 卷类型处理
   - 卷生命周期管理
   - 卷指标收集
   - 卷清理和回收
-  - **预计大小**：30-40KB
+  - 最佳实践（卷类型选择、资源限制、存储类、监控、优化）
 
 - [ ] **Service Account 和 Token 管理深度分析**
   - ServiceAccount 机制

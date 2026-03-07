@@ -68,7 +68,8 @@ const a =  defineConfig({
         items: [
           { text: '存储机制深度分析', link: '/deep-dive/storage-mechanism-deep-dive' },
           { text: 'PV/PVC 绑定机制', link: '/deep-dive/k8s-pv-pvc-binding-mechanism-deep-dive' },
-          { text: 'CSI Volume Manager', link: '/deep-dive/csi-volume-manager-deep-dive' }
+          { text: 'CSI Volume Manager', link: '/deep-dive/csi-volume-manager-deep-dive' },
+          { text: 'Volume Manager 深度分析', link: '/deep-dive/volume-manager-deep-dive' }
         ]
       },
       {
