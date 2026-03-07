@@ -120,7 +120,8 @@ const a =  defineConfig({
         text: 'Kubernetes 专家路径',
         items: [
           { text: 'Etcd 深度分析', link: '/deep-dive/etcd-deep-dive' },
-          { text: 'Containerd 深度分析', link: '/deep-dive/containerd-deep-dive' }
+          { text: 'Containerd 深度分析', link: '/deep-dive/containerd-deep-dive' },
+          { text: 'Service Mesh (Istio) 深度分析', link: '/deep-dive/service-mesh-istio-deep-dive' }
         ]
       }
     ],
