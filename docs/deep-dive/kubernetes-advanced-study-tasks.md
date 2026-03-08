@@ -103,17 +103,24 @@
 
 **Git 提交**: 9c72375
 
-### 6. DaemonSet Controller ⭐⭐⭐⭐
+### 6. DaemonSet Controller（守护进程集控制器）⭐⭐⭐⭐
 
-**状态**: ⏳ 待分析
+**状态**: ✅ 已完成
 
 **位置**: `pkg/controller/daemon/`
 
 **核心内容**:
-- 节点亲和性管理
-- 滚动更新策略
-- 节点选择和过滤
-- 污点容忍机制
+- 守护进程保证机制（每个节点一个 Pod 副本）
+- 节点亲和性管理（Node Selector + Pod Affinity）
+- 滚动更新策略（OnDelete/RollingUpdate）
+- 节点选择和过滤（Node Selector + 污点容忍）
+- 一致性保证机制（Consistency Store）
+- 失败 Pod 自动恢复机制（Failed Pods Backoff）
+- 突发限流保护（Burst Replicas）
+
+**Git 提交**: bb2b613
+
+### 7. Feature Gates ⭐⭐⭐⭐
 
 ### 7. Feature Gates ⭐⭐⭐⭐
 
