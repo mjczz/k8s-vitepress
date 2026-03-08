@@ -25,7 +25,7 @@
 | 特性 | APIService | CRD |
 |------|-----------|-----|
 | **实现方式** | 独立 API Server | 内嵌到 kube-apiserver |
-| **API 路径** | /apis/<group>/<version> | /apis/<group>/<version>/... |
+| **API 路径** | /apis/&lt;group&gt;/&lt;version&gt; | /apis/&lt;group&gt;/&lt;version&gt;/... |
 | **客户端访问** | 与原生 API 无区别 | 需要指定 apiVersion |
 | **性能开销** | 独立进程，可独立扩展 | 增加 kube-apiserver 负担 |
 | **使用场景** | 需要独立 API 服务器 | 简单的自定义资源 |

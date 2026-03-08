@@ -365,7 +365,7 @@ func CheckCertificatePeriodValidity(baseName string, cert *x509.Certificate) err
 | 文件 | 用途 | 用户 |
 |------|------|------|
 | admin.conf | 管理员配置 | kubernetes-admin |
-| kubelet.conf | Kubelet 配置 | system:node:<node-name> |
+| kubelet.conf | Kubelet 配置 | system:node:&lt;node-name&gt; |
 | controller-manager.conf | Controller Manager 配置 | system:kube-controller-manager |
 | scheduler.conf | Scheduler 配置 | system:kube-scheduler |
 
@@ -802,7 +802,7 @@ spec:
 **Token 格式**：
 
 ```
-<token-id>.<token-secret>
+&lt;token-id&gt;.&lt;token-secret&gt;
 ```
 
 **示例**：
