@@ -55,6 +55,30 @@
 
 - [Device Manager 深度分析](device-manager-deep-dive.md) - 设备管理器深度分析
 
+### 工作负载控制器
+
+- [Deployment Controller](deployment-controller-deep-dive.md) - Deployment 控制器深度分析
+  - 滚动更新机制、回滚策略、比例缩放
+  - ReplicaSet 管理和版本控制
+- [StatefulSet Controller](statefulset-controller-deep-dive.md) - StatefulSet 控制器深度分析
+  - 有状态应用管理、Pod 顺序控制
+  - 持久化存储和拓扑提示
+- [ReplicaSet Controller](replicaset-controller-deep-dive.md) - ReplicaSet 控制器深度分析
+  - Pod 副本管理、期望模式、慢启动算法
+- [DaemonSet Controller](daemonset-controller-deep-dive.md) - DaemonSet 控制器深度分析
+  - 节点选择、滚动更新、守护进程保证机制
+- [Job Controller](job-controller-deep-dive.md) - Job 控制器深度分析
+  - 批处理任务管理、并行控制、重试策略
+
+### 节点与设备管理
+
+- [Node Lifecycle Controller](node-lifecycle-controller-deep-dive.md) - 节点生命周期控制器
+  - 节点健康监控、故障检测、驱逐机制
+- [EndpointSlice Controller](endpointslice-controller-deep-dive.md) - EndpointSlice 控制器
+  - 服务端点发现、拓扑感知路由
+- [CSI 驱动机制](csi-driver-deep-dive.md) - CSI 容器存储接口
+  - CSI 驱动注册、卷挂载/卸载、卷扩展
+
 ### 扩展主题
 
 - [Service Account 和 Token 管理](serviceaccount-token-deep-dive.md) - 身份认证和授权
@@ -142,26 +166,28 @@
 
 | 指标 | 数值 |
 |------|------|
-| **文档总数** | 58 |
-| **总字数** | 约 95 万字 |
-| **流程图总数** | 360+ |
-| **代码示例总数** | 600+ |
+| **文档总数** | 66 |
+| **总字数** | 约 100 万字 |
+| **流程图总数** | 380+ |
+| **代码示例总数** | 650+ |
 
 ### 文档分类统计
 
 | 分类 | 文档数 | 占比 |
 |------|--------|------|
-| 核心控制平面 | 4 | 7% |
-| 资源管理 | 5 | 9% |
-| 存储与卷 | 4 | 7% |
-| 网络 | 6 | 10% |
+| 核心控制平面 | 4 | 6% |
+| 资源管理 | 5 | 8% |
+| 存储与卷 | 4 | 6% |
+| 网络 | 6 | 9% |
 | 安全 | 3 | 5% |
-| 监控与扩展 | 5 | 9% |
+| 监控与扩展 | 5 | 8% |
 | 高级特性 | 1 | 2% |
-| 扩展主题 | 5 | 9% |
-| **Kubernetes 项目源码分析** | **15** | **26%** |
-| **Kubernetes 高级分析** | **5** | **9%** |
-| **总计** | **58** | **100%** |
+| 扩展主题 | 5 | 8% |
+| **Kubernetes 项目源码分析** | **15** | **23%** |
+| **Kubernetes 高级分析** | **5** | **8%** |
+| **工作负载控制器** | **5** | **8%** |
+| **节点与设备管理** | **4** | **6%** |
+| **总计** | **66** | **100%** |
 
 ---
 
@@ -222,8 +248,8 @@
 本站提供了完整的 Kubernetes 学习路径，从初学者到专家。建议按照推荐的路径系统学习，并定期关注更新。
 
 **关键要点**：
-- 📚 58 篇深度分析文档，覆盖 95 万字内容
-- 🎨 360+ 个 Mermaid 流程图
-- 💻 600+ 个代码示例
+- 📚 66 篇深度分析文档，覆盖 100 万字内容
+- 🎨 380+ 个 Mermaid 流程图
+- 💻 650+ 个代码示例
 - 🎯 系统化的学习路径（初学者 → 进阶 → 专家）
 :::

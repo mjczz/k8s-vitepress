@@ -151,6 +151,25 @@ const a =  defineConfig({
         ]
       },
       {
+        text: '工作负载控制器',
+        items: [
+          { text: 'Deployment Controller', link: '/deep-dive/deployment-controller-deep-dive' },
+          { text: 'StatefulSet Controller', link: '/deep-dive/statefulset-controller-deep-dive' },
+          { text: 'ReplicaSet Controller', link: '/deep-dive/replicaset-controller-deep-dive' },
+          { text: 'DaemonSet Controller', link: '/deep-dive/daemonset-controller-deep-dive' },
+          { text: 'Job Controller', link: '/deep-dive/job-controller-deep-dive' }
+        ]
+      },
+      {
+        text: '节点与设备管理',
+        items: [
+          { text: 'Node Lifecycle Controller', link: '/deep-dive/node-lifecycle-controller-deep-dive' },
+          { text: 'EndpointSlice Controller', link: '/deep-dive/endpointslice-controller-deep-dive' },
+          { text: 'CSI 驱动机制', link: '/deep-dive/csi-driver-deep-dive' },
+          { text: 'Device Manager 深度分析', link: '/deep-dive/device-manager-deep-dive' }
+        ]
+      },
+      {
         text: 'Kubernetes 专家路径',
         items: [
           { text: 'Etcd 深度分析', link: '/deep-dive/etcd-deep-dive' },
