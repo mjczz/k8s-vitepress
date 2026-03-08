@@ -25,7 +25,8 @@ const a =  defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '深度分析', link: '/deep-dive/' },
-      { text: '核心组件', link: '/deep-dive/api-server-deep-dive' },
+      { text: '项目源码分析', link: '/deep-dive/kubernetes-analysis-01-overview' },
+      { text: '学习路径', link: '/deep-dive/kubernetes-study-tasks' },
       { text: 'GitHub', link: 'https://github.com/kubernetes/kubernetes' }
     ],
 
@@ -34,7 +35,9 @@ const a =  defineConfig({
         text: '开始',
         items: [
           { text: '首页', link: '/' },
-          { text: '分析计划', link: '/deep-dive/ANALYSIS_TODO' }
+          { text: '文档索引', link: '/deep-dive/' },
+          { text: '更新日志', link: '/deep-dive/changelog' },
+          { text: '学习路径', link: '/deep-dive/kubernetes-study-tasks' }
         ]
       },
       {
@@ -114,6 +117,37 @@ const a =  defineConfig({
           { text: 'Prometheus Adapter', link: '/deep-dive/prometheus-adapter-deep-dive' },
           { text: 'Metrics Server', link: '/deep-dive/metrics-server-deep-dive' },
           { text: 'Kubernetes Dashboard', link: '/deep-dive/kubernetes-dashboard-deep-dive' }
+        ]
+      },
+      {
+        text: 'Kubernetes 项目源码分析',
+        items: [
+          { text: '项目概览', link: '/deep-dive/kubernetes-analysis-01-overview' },
+          { text: '学习任务列表', link: '/deep-dive/kubernetes-study-tasks' },
+          { text: 'API Server 架构', link: '/deep-dive/kubernetes-analysis-02-apiserver' },
+          { text: 'Controller Manager', link: '/deep-dive/kubernetes-analysis-03-controller-manager' },
+          { text: 'Scheduler', link: '/deep-dive/kubernetes-analysis-04-scheduler' },
+          { text: 'Kubelet', link: '/deep-dive/kubernetes-analysis-05-kubelet' },
+          { text: 'Kube-proxy', link: '/deep-dive/kubernetes-analysis-05-kube-proxy' },
+          { text: 'etcd 集成', link: '/deep-dive/kubernetes-analysis-07-etcd-integration' },
+          { text: '网络模型', link: '/deep-dive/kubernetes-analysis-08-network' },
+          { text: '存储系统', link: '/deep-dive/kubernetes-analysis-09-storage' },
+          { text: 'API 设计', link: '/deep-dive/kubernetes-analysis-10-api-design' },
+          { text: '安全机制', link: '/deep-dive/kubernetes-analysis-11-security' },
+          { text: '测试策略', link: '/deep-dive/kubernetes-analysis-12-testing-strategy' },
+          { text: '构建和发布', link: '/deep-dive/kubernetes-analysis-13-build-and-release' },
+          { text: '分析进度', link: '/deep-dive/kubernetes-analysis-progress-final' }
+        ]
+      },
+      {
+        text: 'Kubernetes 高级分析',
+        items: [
+          { text: 'kubeadm 集群引导工具', link: '/deep-dive/kubernetes-advanced-analysis-01-kubeadm' },
+          { text: 'Garbage Collector', link: '/deep-dive/kubernetes-advanced-analysis-02-garbage-collector' },
+          { text: 'Kube-Aggregator', link: '/deep-dive/kubernetes-advanced-analysis-03-kube-aggregator' },
+          { text: 'Cloud Controller Manager', link: '/deep-dive/kubernetes-advanced-analysis-04-cloud-controller-manager' },
+          { text: 'Pod Autoscaler', link: '/deep-dive/kubernetes-advanced-analysis-10-pod-autoscaler' },
+          { text: '项目总结', link: '/deep-dive/kubernetes-advanced-project-summary' }
         ]
       },
       {
