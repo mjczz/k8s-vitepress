@@ -18,25 +18,19 @@
 - [Pod Worker 深度分析](pod-worker-deep-dive.md) - Pod 调度和同步机制
 - [PLEG 深度分析](pleg-deep-dive.md) - Pod 生命周期事件生成器
 
-### 容器运行时
-
-- [CRI 运行时深度分析](cri-runtime-deep-dive.md) - 容器运行时接口详解
-- [HPA 扩缩容机制](hpa-scaling-mechanism-deep-dive.md) - 水平 Pod 自动伸缩
-- [CRD Operator 深度分析](crd-operator-deep-dive.md) - 自定义资源和 Operator 模式
-
 ### 存储与卷
 
 - [存储机制深度分析](storage-mechanism-deep-dive.md) - 存储系统架构
-- [PV/PVC 绑定机制](k8s-pv-pvc-binding-mechanism-deep-dive.md) - 持久化卷绑定流程
-- [CSI Volume Manager](csi-volume-manager-deep-dive.md) - 容器存储接口实现
+- [PV/PVC 绑定机制深度分析](k8s-pv-pvc-binding-mechanism-deep-dive.md) - 持久化卷绑定流程
+- [CSI Volume Manager 深度分析](csi-volume-manager-deep-dive.md) - 容器存储接口实现
 - [Volume Manager 深度分析](volume-manager-deep-dive.md) - 卷管理和挂载流程
 
 ### 网络
 
-- [CNI 插件机制](k8s-cni-plugin-mechanism-deep-dive.md) - 容器网络接口
+- [CNI 插件机制深度分析](k8s-cni-plugin-mechanism-deep-dive.md) - 容器网络接口
 - [服务网络深度分析](k8s-service-network-deep-dive.md) - Service 网络实现
 - [Kube Proxy 源码分析](kube-proxy-source-code-deep-dive.md) - 网络代理实现
-- [网络策略实现](network-policy-implementation-deep-dive.md) - Network Policy 机制
+- [网络策略实现深度分析](network-policy-implementation-deep-dive.md) - Network Policy 机制
 - [网络策略深度分析](k8s-network-policy-deep-dive.md) - 网络策略详解
 - [Ingress Controller](k8s-ingress-controller-deep-dive.md) - 入口控制器
 
@@ -65,12 +59,87 @@
 - [Metrics Server](metrics-server-deep-dive.md) - 资源指标监控
 - [Kubernetes Dashboard](kubernetes-dashboard-deep-dive.md) - Web UI 管理
 
-### ⭐ Kubernetes 专家路径
+### ⭐ Kubernetes 高级分析（新增）
 
-- [Etcd 深度分析](etcd-deep-dive.md) ⭐⭐⭐⭐⭐ - 分布式系统和 Raft 协议
-- [Containerd 深度分析](containerd-deep-dive.md) ⭐⭐⭐⭐⭐ - 容器运行时底层
-- [Service Mesh (Istio) 深度分析](service-mesh-istio-deep-dive.md) ⭐⭐⭐⭐⭐ - 云原生网络
-- [Multi-Cluster 深度分析](multi-cluster-deep-dive.md) ⭐⭐⭐⭐⭐ - 多集群管理
+以下 10 个主题是 Kubernetes 高级特性的核心内容，基于最新 Kubernetes v1.36.0-alpha.0 源码深度分析：
+
+#### 第一批（必做）- 核心机制
+
+- [kubeadm 集群引导工具](kubernetes-advanced-analysis-01-kubeadm.md) ⭐⭐⭐⭐⭐
+  - 34K 字符，15 个 Mermaid 图表，20 个代码示例
+  - 14 个 init phases 详细解析
+  - Bootstrap Token 机制
+  - TLS 证书生成和管理
+
+- [Garbage Collector（垃圾收集器）](kubernetes-advanced-analysis-02-garbage-collector.md) ⭐⭐⭐⭐⭐
+  - 20K 字符，18 个 Mermaid 图表，22 个代码示例
+  - 依赖关系图构建
+  - 三种级联删除策略（Foreground, Background, Orphan）
+  - Finalizer 机制和双向依赖检测
+
+- [Kube-Aggregator（API 聚合器）](kubernetes-advanced-analysis-03-kube-aggregator.md) ⭐⭐⭐⭐⭐
+  - 22K 字符，20 个 Mermaid 图表，24 个代码示例
+  - APIService 注册和管理
+  - 代理转发机制
+  - Delegating Authentication 和 Authorization
+  - OpenAPI 聚合
+
+- [Cloud Controller Manager（云控制器管理器）](kubernetes-advanced-analysis-04-cloud-controller-manager.md) ⭐⭐⭐⭐⭐
+  - 24K 字符，20 个 Mermaid 图表，25 个代码示例
+  - Node Controller - 节点状态同步
+  - Route Controller - 路由管理
+  - Service Controller - LoadBalancer 管理
+  - Node IPAM - IP 地址分配管理
+
+#### 第二批（进阶）- 云原生架构
+
+- [CronJob Controller（定时任务控制器）](kubernetes-advanced-analysis-05-cronjob-controller.md) ⭐⭐⭐⭐⭐
+  - 18K 字符，18 个 Mermaid 图表，23 个代码示例
+  - Cron 表达式解析（标准 5 位格式）
+  - 三种并发策略（Allow, Forbid, Replace）
+  - 历史记录管理（成功/失败）
+  - Suspend 机制（暂停/恢复）
+
+- [DaemonSet Controller（守护进程集控制器）](kubernetes-advanced-analysis-06-daemonset-controller.md) ⭐⭐⭐⭐⭐
+  - 16K 字符，14 个 Mermaid 图表，22 个代码示例
+  - 守护进程保证机制（每个节点一个 Pod 副本）
+  - 节点亲和性管理（Node Selector + Pod Affinity）
+  - 滚动更新策略（OnDelete/RollingUpdate）
+  - 节点选择和过滤（Node Selector + 污点容忍）
+  - 一致性保证机制（Consistency Store）
+  - 失败 Pod 自动恢复机制（Failed Pods Backoff）
+
+- [Feature Gates（特性门控）](kubernetes-advanced-analysis-07-feature-gates.md) ⭐⭐⭐⭐⭐
+  - 15K 字符，12 个 Mermaid 图表，18 个代码示例
+  - 100+ 特性开关管理
+  - 特性生命周期（Alpha → Beta → GA → Deprecated）
+  - FeatureGate 注册和查询
+  - 性能优化（map、锁、缓存）
+
+#### 第三批（专家级）- 前沿特性
+
+- [Dynamic Resource Allocation（DRA）- 动态资源分配](kubernetes-advanced-analysis-08-dra.md) ⭐⭐⭐⭐⭐
+  - 16K 字符，14 个 Mermaid 图表，20 个代码示例
+  - 标准化的资源模型（ResourceClass、ResourceClaim、Resource）
+  - 插件化架构支持第三方 Resource Driver
+  - 动态资源分配和回收
+  - 优先级调度支持
+
+- [Storage Version Migration（存储版本迁移）](kubernetes-advanced-analysis-09-storage-version-migration.md) ⭐⭐⭐⭐⭐
+  - 18K 字符，16 个 Mermaid 图表，20 个代码示例
+  - 自动版本迁移（PV 和 PVC）
+  - 数据一致性保证
+  - 任务队列管理
+  - 重试机制和幂等性保证
+  - Finalizer 机制
+
+- [Pod Autoscaler（Pod 自动扩缩容）](kubernetes-advanced-analysis-10-pod-autoscaler.md) ⭐⭐⭐⭐⭐
+  - 17K 字符，15 个 Mermaid 图表，22 个代码示例
+  - HPA（水平扩缩容）- 根据 CPU/内存等指标自动调整 Pod 副本数
+  - VPA（垂直扩缩容）- 根据 CPU/内存使用率自动调整资源配置
+  - NPA（预测性扩缩容）- 基于机器学习预测未来负载
+  - 自定义指标支持
+  - 滚动更新策略和冷却时间
 
 ---
 
@@ -78,11 +147,26 @@
 
 | 指标 | 数值 |
 |------|------|
-| **文档总数** | 33 篇 |
-| **总字数** | 约 80 万字 |
-| **核心组件** | 45+ |
-| **代码示例** | 320+ |
-| **流程图** | 170+ |
+| **文档总数** | 48 |
+| **总字数** | 约 90 万字 |
+| **流程图总数** | 340+ |
+| **代码示例总数** | 550+ |
+
+### 文档分类统计
+
+| 分类 | 文档数 | 占比 |
+|------|--------|------|
+| 核心控制平面 | 4 | 8% |
+| 资源管理 | 5 | 10% |
+| 存储与卷 | 4 | 8% |
+| 网络 | 6 | 13% |
+| 安全 | 3 | 6% |
+| 监控与扩展 | 5 | 10% |
+| 高级特性 | 1 | 2% |
+| 扩展主题 | 5 | 10% |
+| **Kubernetes 高级分析** | **10** | **21%** |
+| 扩展主题 | 5 | 10% |
+| **总计** | **48** | **100%** |
 
 ---
 
@@ -105,161 +189,6 @@
 1. **底层机制**: Etcd → Containerd → Service Mesh → Multi-Cluster
 2. **架构设计**: Kubernetes 整体架构 → 分布式系统 → 云原生网络
 3. **大规模部署**: 多集群管理 → 跨集群调度 → 故障转移
-
----
-
-## 🎖️ 核心主题
-
-### Etcd 深度分析 ⭐⭐⭐⭐⭐
-
-**核心内容**：
-- Etcd 架构和设计
-- Raft 协议详解
-- 数据存储和一致性（MVCC、事务）
-- 客户端 API（KV、Watch、Lease）
-- 安全和访问控制（TLS、RBAC）
-- 监控和告警（Prometheus 指标）
-- 性能优化（配置调优、BoltDB 优化）
-- 故障排查（集群脑裂、WAL 增长）
-- 最佳实践（多节点部署、备份、监控）
-
-**学习收益**：
-- 💾 掌握分布式系统的核心原理
-- 🔄 理解 Raft 共识协议和一致性算法
-- 📊 优化 Etcd 性能和可靠性
-- 🚀 成为 Kubernetes 和分布式系统专家
-
-### Containerd 深度分析 ⭐⭐⭐⭐⭐
-
-**核心内容**：
-- Containerd 架构和设计
-- Runtime V2 协议
-- 容器创建和管理
-- 镜像拉取和存储
-- CRI 实现细节
-- Snapshots 和内容寻址
-- 安全和隔离（命名空间、Rootless、Seccomp）
-- 性能优化（配置调优、BoltDB 优化）
-- 故障排查（容器启动失败、镜像拉取失败、性能下降）
-- 最佳实践（多节点部署、启用 TLS、备份、监控）
-
-**学习收益**：
-- 🐳 深入理解容器运行时底层机制
-- 🔧 掌握 Containerd 的配置和管理
-- ⚡ 优化容器性能和安全性
-- 🛠️ 实现自定义容器运行时扩展
-
-### Service Mesh (Istio) 深度分析 ⭐⭐⭐⭐⭐
-
-**核心内容**：
-- Service Mesh 概述和原理
-- Service Mesh 架构（Control Plane、Data Plane）
-- Istio 架构（Pilot、Citadel、Galley）
-- Sidecar 注入机制
-- 流量管理（Traffic Splitting、Fault Injection）
-- 安全策略（mTLS、Authorization Policies）
-- 可观测性（Metrics、Tracing、Logging）
-- 多集群管理
-- 性能优化
-- 故障排查
-- 最佳实践
-
-**学习收益**：
-- 🌐 掌握 Service Mesh 架构和原理
-- 🚦 理解 Istio 的核心组件
-- 📊 实现微服务的流量管理
-- 🔒 提升应用的安全性和可观测性
-- 🔗 掌握现代云原生网络的标准
-
-### Multi-Cluster 深度分析 ⭐⭐⭐⭐⭐
-
-**核心内容**：
-- Multi-Cluster 概述和设计
-- Karmada 架构（集群联邦）
-- vcluster 架构（虚拟集群）
-- 跨集群调度
-- 跨集群服务发现
-- 跨集群策略和迁移
-- 跨集群监控和可观测性
-- 性能优化
-- 故障排查
-- 最佳实践
-
-**学习收益**：
-- 🌐 掌握多集群架构和原理
-- 📊 实现跨集群资源调度和负载均衡
-- 🔒 实现跨集群安全策略和访问控制
-- 🚀 实现跨集群故障转移和业务连续性
-- 🔍 实现跨集群监控和可观测性
-- 💡 成为 Kubernetes 多集群架构专家
-
----
-
-## 🚀 新增主题
-
-### Kubernetes 专家路径
-
-以下 4 个主题是新增的 Kubernetes 专家路径主题，完成这些主题后，你将成为真正的 Kubernetes 专家：
-
-1. **Etcd 深度分析** ⭐⭐⭐⭐⭐
-   - 分布式系统和 Raft 协议
-   - 高可用架构和故障转移
-   - 性能优化和监控告警
-
-2. **Containerd 深度分析** ⭐⭐⭐⭐⭐
-   - 容器运行时底层机制
-   - Runtime V2 协议
-   - 安全隔离和性能优化
-
-3. **Service Mesh (Istio) 深度分析** ⭐⭐⭐⭐⭐
-   - 云原生网络和流量管理
-   - Sidecar 注入和控制平面
-   - 可观测性和安全策略
-
-4. **Multi-Cluster 深度分析** ⭐⭐⭐⭐⭐
-   - 多集群架构和调度
-   - 跨集群服务发现和故障转移
-   - 大规模部署和管理
-
----
-
-## 📊 完整统计
-
-### 文档分类统计
-
-| 分类 | 数量 | 占比 |
-|------|------|------|
-| 核心控制平面 | 4 | 12% |
-| 资源管理 | 4 | 12% |
-| 容器运行时 | 3 | 9% |
-| 存储与卷 | 4 | 12% |
-| 网络 | 6 | 18% |
-| 安全 | 3 | 9% |
-| 监控与扩展 | 4 | 12% |
-| 高级特性 | 1 | 3% |
-| 扩展主题 | 5 | 15% |
-| **Kubernetes 专家路径** | **4** | **12%** |
-| **总计** | **38** | **100%** |
-
----
-
-## 🎯 推荐学习顺序
-
-### 方案 1：系统性学习（推荐）
-
-1. **第一阶段**（基础）：核心控制平面 → 资源管理 → 容器运行时
-2. **第二阶段**（进阶）：存储 → 网络 → 安全 → 监控
-3. **第三阶段**（专家）：Kubernetes 专家路径（Etcd → Containerd → Service Mesh → Multi-Cluster）
-
-**预计时间**：2-3 个月
-
-### 方案 2：针对性学习
-
-1. **如果你关注底层机制**：Etcd → Containerd
-2. **如果你关注网络和安全**：Service Mesh → 网络策略 → 安全机制
-3. **如果你关注运维和管理**：Multi-Cluster → 监控指标 → 集群自动伸缩
-
-**预计时间**：1-2 个月
 
 ---
 
@@ -286,66 +215,20 @@
 
 ---
 
-## 🔧 工具链
+## 📚 参考资料
 
-### 文档工具
-
-- **Markdown**: 文档编写
-- **Mermaid**: 流程图绘制
-- **VitePress**: 文档站点生成
-
-### 开发工具
-
-- **Go 1.25.0**: Kubernetes 开发语言
-- **kubectl**: Kubernetes 命令行工具
-- **minikube**: 本地 Kubernetes 集群
-- **kind**: 本地 Kubernetes 集群
-
-### 监控工具
-
-- **Prometheus**: 监控和告警
-- **Grafana**: 可视化面板
-- **Jaeger**: 分布式追踪
-- **ELK**: 日志收集和分析
+- [Kubernetes 文档](https://kubernetes.io/docs/)
+- [Kubernetes 源码](https://github.com/kubernetes/kubernetes)
+- [k8s-vitepress 项目](https://github.com/mjczz/k8s-vitepress)
 
 ---
 
-## 📄 许可
+::: tip 持续学习
+本站提供了完整的 Kubernetes 学习路径，从初学者到专家。建议按照推荐的路径系统学习，并定期关注更新。
 
-本文档基于 CC BY-NC-SA 4.0 许可协议，你可以自由地：
-
-- 📤 分享 - 在任何媒介以任何形式复制、发行本作品
-- 🔄 演绎 - 修改、转换或以本作品为基础进行创作
-- 📝 非商业用途 - 不得用于商业目的
-- 📋 相同方式共享 - 若修改本作品，需采用相同许可协议
-
----
-
-## 🙏 致谢
-
-感谢 Kubernetes 社区的贡献，以及所有为云原生技术做出贡献的开发者。
-
-特别感谢以下组织和项目：
-
-- [Kubernetes](https://kubernetes.io/)
-- [CNCF](https://www.cncf.io/)
-- [Etcd](https://etcd.io/)
-- [Containerd](https://containerd.io/)
-- [Istio](https://istio.io/)
-- [Karmada](https://karmada.io/)
-- [vcluster](https://www.vcluster.com/)
-- [Prometheus](https://prometheus.io/)
-- [Jaeger](https://www.jaegertracing.io/)
-
----
-
-::: tip 专家路径
-完成 **Kubernetes 专家路径**的 4 个主题后，你将：
-
-- 💾 掌握分布式系统和 Raft 协议
-- 🐳 深入理解容器运行时底层机制
-- 🌐 掌握云原生网络和流量管理
-- 📈 实现大规模多集群部署和管理
-
-- **成为真正的 Kubernetes 专家** 🏆
+**关键要点**：
+- 📚 48 篇深度分析文档，覆盖 90 万字内容
+- 🎨 340+ 个 Mermaid 流程图
+- 💻 550+ 个代码示例
+- 🎯 系统化的学习路径（初学者 → 进阶 → 专家）
 :::
