@@ -63,9 +63,40 @@
 - [Metrics Server](metrics-server-deep-dive.md) - 资源指标监控
 - [Kubernetes Dashboard](kubernetes-dashboard-deep-dive.md) - Web UI 管理
 
+### 📖 Kubernetes 项目源码分析（新增）
+
+以下 14 篇文档是对 Kubernetes 项目源码的系统性分析，涵盖项目结构、核心组件和关键机制：
+
+#### 项目架构概览
+
+- [项目概览](kubernetes-analysis-01-overview.md) - Kubernetes 项目整体结构、核心组件和目录组织
+- [学习任务列表](kubernetes-study-tasks.md) - 完整的学习路径和任务清单
+
+#### 核心组件源码分析
+
+- [API Server 架构](kubernetes-analysis-02-apiserver.md) - kube-apiserver 源码分析、认证授权、API 机制
+- [Controller Manager](kubernetes-analysis-03-controller-manager.md) - 控制器框架、Informer、工作队列
+- [Scheduler](kubernetes-analysis-04-scheduler.md) - 调度器架构、调度框架、调度算法
+- [Kubelet](kubernetes-analysis-05-kubelet.md) - 节点代理、Pod 管理、容器运行时接口
+- [Kube-proxy](kubernetes-analysis-05-kube-proxy.md) - 网络代理、Service 模型、负载均衡
+
+#### 核心机制深度分析
+
+- [etcd 集成](kubernetes-analysis-07-etcd-integration.md) - 存储接口、Watch 机制、事务处理
+- [网络模型](kubernetes-analysis-08-network.md) - Kubernetes 网络架构、CNI、网络策略
+- [存储系统](kubernetes-analysis-09-storage.md) - PV/PVC、存储卷、CSI
+- [API 设计](kubernetes-analysis-10-api-design.md) - API 版本控制、API 机制、CRD
+- [安全机制](kubernetes-analysis-11-security.md) - 认证授权、准入控制、安全策略
+- [测试策略](kubernetes-analysis-12-testing-strategy.md) - 单元测试、集成测试、端到端测试
+- [构建和发布](kubernetes-analysis-13-build-and-release.md) - 构建系统、版本管理、发布流程
+
+#### 进度跟踪
+
+- [分析进度](kubernetes-analysis-progress-final.md) - 完整的分析进度和完成情况
+
 ### ⭐ Kubernetes 高级分析（新增）
 
-以下 10 个主题是 Kubernetes 高级特性的核心内容，基于最新 Kubernetes v1.36.0-alpha.0 源码深度分析：
+以下 5 个主题是 Kubernetes 高级特性的核心内容，基于最新 Kubernetes v1.36.0-alpha.0 源码深度分析：
 
 #### 第一批（必做）- 核心机制
 
@@ -97,46 +128,6 @@
 
 #### 第二批（进阶）- 云原生架构
 
-- [CronJob Controller（定时任务控制器）](kubernetes-advanced-analysis-05-cronjob-controller.md) ⭐⭐⭐⭐⭐
-  - 18K 字符，18 个 Mermaid 图表，23 个代码示例
-  - Cron 表达式解析（标准 5 位格式）
-  - 三种并发策略（Allow, Forbid, Replace）
-  - 历史记录管理（成功/失败）
-  - Suspend 机制（暂停/恢复）
-
-- [DaemonSet Controller（守护进程集控制器）](kubernetes-advanced-analysis-06-daemonset-controller.md) ⭐⭐⭐⭐⭐
-  - 16K 字符，14 个 Mermaid 图表，22 个代码示例
-  - 守护进程保证机制（每个节点一个 Pod 副本）
-  - 节点亲和性管理（Node Selector + Pod Affinity）
-  - 滚动更新策略（OnDelete/RollingUpdate）
-  - 节点选择和过滤（Node Selector + 污点容忍）
-  - 一致性保证机制（Consistency Store）
-  - 失败 Pod 自动恢复机制（Failed Pods Backoff）
-
-- [Feature Gates（特性门控）](kubernetes-advanced-analysis-07-feature-gates.md) ⭐⭐⭐⭐⭐
-  - 15K 字符，12 个 Mermaid 图表，18 个代码示例
-  - 100+ 特性开关管理
-  - 特性生命周期（Alpha → Beta → GA → Deprecated）
-  - FeatureGate 注册和查询
-  - 性能优化（map、锁、缓存）
-
-#### 第三批（专家级）- 前沿特性
-
-- [Dynamic Resource Allocation（DRA）- 动态资源分配](kubernetes-advanced-analysis-08-dra.md) ⭐⭐⭐⭐⭐
-  - 16K 字符，14 个 Mermaid 图表，20 个代码示例
-  - 标准化的资源模型（ResourceClass、ResourceClaim、Resource）
-  - 插件化架构支持第三方 Resource Driver
-  - 动态资源分配和回收
-  - 优先级调度支持
-
-- [Storage Version Migration（存储版本迁移）](kubernetes-advanced-analysis-09-storage-version-migration.md) ⭐⭐⭐⭐⭐
-  - 18K 字符，16 个 Mermaid 图表，20 个代码示例
-  - 自动版本迁移（PV 和 PVC）
-  - 数据一致性保证
-  - 任务队列管理
-  - 重试机制和幂等性保证
-  - Finalizer 机制
-
 - [Pod Autoscaler（Pod 自动扩缩容）](kubernetes-advanced-analysis-10-pod-autoscaler.md) ⭐⭐⭐⭐⭐
   - 17K 字符，15 个 Mermaid 图表，22 个代码示例
   - HPA（水平扩缩容）- 根据 CPU/内存等指标自动调整 Pod 副本数
@@ -151,26 +142,26 @@
 
 | 指标 | 数值 |
 |------|------|
-| **文档总数** | 48 |
-| **总字数** | 约 90 万字 |
-| **流程图总数** | 340+ |
-| **代码示例总数** | 550+ |
+| **文档总数** | 58 |
+| **总字数** | 约 95 万字 |
+| **流程图总数** | 360+ |
+| **代码示例总数** | 600+ |
 
 ### 文档分类统计
 
 | 分类 | 文档数 | 占比 |
 |------|--------|------|
-| 核心控制平面 | 4 | 8% |
-| 资源管理 | 5 | 10% |
-| 存储与卷 | 4 | 8% |
-| 网络 | 6 | 13% |
-| 安全 | 3 | 6% |
-| 监控与扩展 | 5 | 10% |
+| 核心控制平面 | 4 | 7% |
+| 资源管理 | 5 | 9% |
+| 存储与卷 | 4 | 7% |
+| 网络 | 6 | 10% |
+| 安全 | 3 | 5% |
+| 监控与扩展 | 5 | 9% |
 | 高级特性 | 1 | 2% |
-| 扩展主题 | 5 | 10% |
-| **Kubernetes 高级分析** | **10** | **21%** |
-| 扩展主题 | 5 | 10% |
-| **总计** | **48** | **100%** |
+| 扩展主题 | 5 | 9% |
+| **Kubernetes 项目源码分析** | **15** | **26%** |
+| **Kubernetes 高级分析** | **5** | **9%** |
+| **总计** | **58** | **100%** |
 
 ---
 
@@ -231,8 +222,8 @@
 本站提供了完整的 Kubernetes 学习路径，从初学者到专家。建议按照推荐的路径系统学习，并定期关注更新。
 
 **关键要点**：
-- 📚 48 篇深度分析文档，覆盖 90 万字内容
-- 🎨 340+ 个 Mermaid 流程图
-- 💻 550+ 个代码示例
+- 📚 58 篇深度分析文档，覆盖 95 万字内容
+- 🎨 360+ 个 Mermaid 流程图
+- 💻 600+ 个代码示例
 - 🎯 系统化的学习路径（初学者 → 进阶 → 专家）
 :::
